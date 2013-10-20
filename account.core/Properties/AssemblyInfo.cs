@@ -1,16 +1,15 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using log4net.Config;
 
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("platform")]
+[assembly: AssemblyTitle("account.core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("platform")]
+[assembly: AssemblyProduct("account.core")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +20,7 @@ using log4net.Config;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("d3fdbb57-6a40-4d94-b982-c23a342e4ec5")]
+[assembly: Guid("06e8f3eb-cc54-4574-bec0-b2301ac252c1")]
 
 // 程序集的版本信息由下面四个值组成:
 //
@@ -35,4 +34,3 @@ using log4net.Config;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: XmlConfigurator(ConfigFile = "log.xml", Watch = true)]
