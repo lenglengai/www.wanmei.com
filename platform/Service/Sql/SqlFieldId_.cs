@@ -1,6 +1,6 @@
 ﻿namespace platform
 {
-    public enum SqlFieldId_ : short
+    public enum SqlFieldId_ : int
     {
         mNone_ = 0,
         mPrimary_ = 1,

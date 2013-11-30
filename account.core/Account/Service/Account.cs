@@ -9,9 +9,9 @@ namespace account.core
 {
     public class Account : PropertyMgr
     {
-        public AccountError_ _checkErrorCode(long nDeviceId, uint nDeviceType)
+        public int _checkErrorCode(long nDeviceId, uint nDeviceType)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             DeviceStatus deviceStatus_ = this._getDeviceStatus(nDeviceType);
             if (null == deviceStatus_)
             {
@@ -24,9 +24,9 @@ namespace account.core
             return result_;
         }
 
-        public AccountError_ _logout(long nDeviceId, uint nDeviceType)
+        public int _logout(long nDeviceId, uint nDeviceType)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             DeviceStatus deviceStatus_ = this._getDeviceStatus(nDeviceType);
             if (null == deviceStatus_)
             {

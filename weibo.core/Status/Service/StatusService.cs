@@ -18,6 +18,7 @@ namespace weibo.core
             {
                 uint propertyId_ = PropertyId<StatusMgr>._classId();
                 StatusMgr statusMgr_ = account_._getProperty<StatusMgr>(propertyId_);
+                statusMgr_._createStatus(account_, nStatusCreateS, result_);
             }
             else
             {
@@ -42,7 +43,7 @@ namespace weibo.core
             }
             else
             {
-                this._getStatus(result_, nStatusGetS.m_tPlayer, nStatusGetS.m_tTicks, nStatusGetS.m_tServer);
+                this._getStatus(result_, nStatusGetS.m_tPlayer, nStatusGetS.m_tTicks, (uint)nStatusGetS.m_tServer);
             }
             return result_;
         }

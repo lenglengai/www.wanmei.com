@@ -1,6 +1,6 @@
 ﻿namespace platform
 {
-    public enum SqlType_ : byte
+    public enum SqlType_ : int
     {
         mCreate_,
         mSelect_,

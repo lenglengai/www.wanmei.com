@@ -1,16 +1,16 @@
 ﻿namespace account.core
 {
-    public enum AccountError_ : uint
+    public class AccountError_
     {
-        mSucess_,
-        mFail_,
-        mSql_,
-        mDevice_,
-        mPassward_,
-        mDeviceType_,
-        mDeviceId_,
-        mNoLogin_,
-        mServerId_,
-        mNoAccount_,
+        public static int mSucess_ = 0;
+        public static int mFail_ = 1;
+        public static int mSql_ = 2;
+        public static int mDevice_ = 3;
+        public static int mPassward_ = 4;
+        public static int mDeviceType_ = 5;
+        public static int mDeviceId_ = 6;
+        public static int mNoLogin_ = 7;
+        public static int mServerId_ = 8;
+        public static int mNoAccount_ = 9;
     }
 }

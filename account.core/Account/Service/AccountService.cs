@@ -19,7 +19,7 @@ namespace account.core
             return @"accountService";
         }
 
-        public AccountError_ _createAccount(string nAccountName, string nNickname, string nPassward)
+        public int _createAccount(string nAccountName, string nNickname, string nPassward)
         {
             uint hashName_ = GenerateId._runTableId(nAccountName);
             uint accountMgrIndex_ = hashName_ % mAccountMgrCount;
@@ -35,9 +35,9 @@ namespace account.core
             return accountMgr_._loginAccount(nAccountName, nPassward, nDeviceType);
         }
 
-        public AccountError_ _logoutAccount(string nAccountName, long nDeviceId, uint nDeviceType, uint nServerId)
+        public int _logoutAccount(string nAccountName, long nDeviceId, uint nDeviceType, uint nServerId)
         {
-            AccountError_ result_ = this._checkServerId(nServerId);
+            int result_ = this._checkServerId(nServerId);
             if (AccountError_.mSucess_ == result_)
             {
                 uint hashName_ = GenerateId._runTableId(nAccountName);
@@ -71,9 +71,9 @@ namespace account.core
             return accountMgr_._getAccount(nAccountName);
         }
 
-        AccountError_ _checkServerId(uint nServerId)
+        int _checkServerId(uint nServerId)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             SettingService settingService_ = __singleton<SettingService>._instance();
             if (!settingService_._checkServerId(nServerId))
             {

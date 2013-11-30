@@ -1,6 +1,6 @@
 ﻿namespace platform
 {
-    public enum SqlDeal_ : byte
+    public enum SqlDeal_ : int
     {
         mNone_,
         mCreate_,

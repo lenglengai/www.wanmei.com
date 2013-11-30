@@ -12,25 +12,28 @@ namespace webstart.Controllers
 {
     public class AccountController : ApiController
     {
-        [HttpGet]
-        public AccountError_ _createAccount(string nName, string nNick, string nPassward)
+        [HttpPost]
+        public int _createAccount(AccountCreateS nAccountCreateS)
         {
             AccountService accountService_ = __singleton<AccountService>._instance();
-            return accountService_._createAccount(nName, nNick, nPassward);
+            return accountService_._createAccount(nAccountCreateS.m_tName,
+                nAccountCreateS.m_tNick, nAccountCreateS.m_tPassward);
         }
 
-        [HttpGet]
-        public AccountLoginC _loginAccount(string nName, string nPassward, uint nDeviceType)
+        [HttpPost]
+        public AccountLoginC _loginAccount(AccountLoginS nAccountLoginS)
         {
             AccountService accountService_ = __singleton<AccountService>._instance();
-            return accountService_._loginAccount(nName, nPassward, nDeviceType);
+            return accountService_._loginAccount(nAccountLoginS.m_tName,
+                nAccountLoginS.m_tPassward, (uint)(nAccountLoginS.m_tDeviceType));
         }
 
-        [HttpGet]
-        public AccountError_ _logoutAccount(string nName, long nDeviceId, uint nDeviceType, uint nServerId)
+        [HttpPost]
+        public int _logoutAccount(AccountLogoutS nAccountLogoutS)
         {
             AccountService accountService_ = __singleton<AccountService>._instance();
-            return accountService_._logoutAccount(nName, nDeviceId, nDeviceType, nServerId);
+            return accountService_._logoutAccount(nAccountLogoutS.m_tName,
+                nAccountLogoutS.m_tDeviceId, (uint)(nAccountLogoutS.m_tDeviceType), (uint)(nAccountLogoutS.m_tServerId));
         }
     }
 }

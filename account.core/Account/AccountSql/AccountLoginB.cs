@@ -18,9 +18,9 @@ namespace account.core
             nSqlCommand._serialize(ref mAccountId, @"WHERE accountId = ");
         }
 
-        public AccountError_ _checkPassward(string nPassward)
+        public int _checkPassward(string nPassward)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             if ( (null == nPassward) || (null == mNickName) || (0 == mTicks) )
             {
                 result_ = AccountError_.mNoAccount_;

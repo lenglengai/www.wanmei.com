@@ -26,7 +26,7 @@ namespace weibo.core
             result_.m_tAttachments = mAttachments;
             result_.m_tText = mText;
             result_.m_tTicks = mTicks;
-            result_.m_tType = mType;
+            result_.m_tType = (int)mType;
             result_.m_tStatusId = mStatusId;
             return result_;
         }

@@ -1,9 +1,9 @@
 ﻿namespace weibo.core
 {
-    public enum StatusType_ : uint
+    public class StatusType_
     {
-        mText_,
-        mVideo_,
-        mVoice_,
+        public static int mText_ = 0;
+        public static int mVideo_ = 1;
+        public static int mVoice_ = 2;
     }
 }

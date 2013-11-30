@@ -9,9 +9,9 @@ namespace account.core
 {
     public class AccountMgr : PropertyMgr
     {
-        public AccountError_ _createAccount(string nAccountName, string nNickname, string nPassward)
+        public int _createAccount(string nAccountName, string nNickname, string nPassward)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             SqlCommand sqlCommand_ = new SqlCommand();
             AccountCreateB accountCreateB_ = new AccountCreateB(nAccountName, nNickname, nPassward, mId);
             sqlCommand_._addHeadstream(accountCreateB_);
@@ -27,7 +27,7 @@ namespace account.core
         {
             SettingService settingService_ = __singleton<SettingService>._instance();
             AccountLoginC result_ = new AccountLoginC();
-            result_.m_tServerId = settingService_._getServerId();
+            result_.m_tServerId = (int)settingService_._getServerId();
             result_.m_tErrorCode = this._checkDevice(nDeviceType);
             if (AccountError_.mSucess_ == result_.m_tErrorCode)
             {
@@ -59,12 +59,12 @@ namespace account.core
         void _loginAccount(AccountLoginB nAccountLoginB, uint nDeviceType, AccountLoginC nAccountLoginC)
         {
             Account account_ = this._loginAccount(nAccountLoginB, nDeviceType);
-            nAccountLoginC.m_tAccountId = nAccountLoginB._getAccountId();
+            nAccountLoginC.m_tAccountId = (int)nAccountLoginB._getAccountId();
             nAccountLoginC.m_tNickName = nAccountLoginB._getNick();
             nAccountLoginC.m_tTicks = nAccountLoginB._getTicks();
             DeviceStatus deviceStatus_ = account_._getDeviceStatus(nDeviceType);
             nAccountLoginC.m_tDeviceId = deviceStatus_._getId();
-            nAccountLoginC.m_tDeviceType = deviceStatus_._getType();
+            nAccountLoginC.m_tDeviceType = (int)deviceStatus_._getType();
         }
 
         Account _loginAccount(AccountLoginB nAccountLoginB, uint nDeviceType)
@@ -86,9 +86,9 @@ namespace account.core
             return result_;
         }
 
-        public AccountError_ _logoutAccount(string nAccountName, long nDeviceId, uint nDeviceType)
+        public int _logoutAccount(string nAccountName, long nDeviceId, uint nDeviceType)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             Account account_ = this._getAccount(nAccountName);
             if (null != account_)
             {
@@ -112,7 +112,7 @@ namespace account.core
             Account account_ = this._getAccount(nAccountGet.m_tName);
             if (null != account_)
             {
-                AccountError_ accountError_ = account_._checkErrorCode(nAccountGet.m_tDeviceId, nAccountGet.m_tDeviceType);
+                int accountError_ = account_._checkErrorCode(nAccountGet.m_tDeviceId, (uint)(nAccountGet.m_tDeviceType));
                 if (AccountError_.mSucess_ == accountError_)
                 {
                     result_ = account_;
@@ -132,9 +132,9 @@ namespace account.core
             return result_;
         }
 
-        AccountError_ _checkDevice(uint nDeviceType)
+        int _checkDevice(uint nDeviceType)
         {
-            AccountError_ result_ = AccountError_.mSucess_;
+            int result_ = AccountError_.mSucess_;
             DeviceService deviceMgr_ = __singleton<DeviceService>._instance();
             if (!deviceMgr_._contain(nDeviceType))
             {

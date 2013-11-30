@@ -6,7 +6,7 @@ namespace weibo.core
     {
         public AccountGet m_tAccountGet { get; set; }
         public string m_tPlayer { get; set; }
-        public uint m_tServer { get; set; }
+        public int m_tServer { get; set; }
         public long m_tTicks { get; set; }
     }
 }
