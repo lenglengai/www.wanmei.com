@@ -9,8 +9,7 @@ namespace money.core
 {
     public class MoneyB : ISqlStream
     {
-        public void _runSelect(ISqlCommand nSqlCommand)
-        {
+        public void _runSelect(ISqlCommand nSqlCommand) {
             nSqlCommand._serialize(ref mId, @"id");
             nSqlCommand._serialize(ref mValue, @"value");
             nSqlCommand._serialize(ref mTotal, @"total");
@@ -21,17 +20,15 @@ namespace money.core
             nSqlCommand._serialize(ref mDebts, @"debts");
         }
 
-        public void _runWhen(ISqlCommand nSqlCommand)
-        {
+        public void _runWhen(ISqlCommand nSqlCommand) {
         }
 
-        public void _initMoneyMgr(MoneyMgr nMoneyMgr)
-        {
+        public void _initMoneyMgr(MoneyMgr nMoneyMgr) {
             Money money_ = nMoneyMgr._getMoney(mId);
-            if (null == money_)
-            {
+            if (null == money_) {
                 LogService logService_ = __singleton<LogService>._instance();
-                logService_._logError(string.Format(@"MoneyB _initMoneyMgr _getMoney:{0}", mId));
+                string logError = string.Format(@"MoneyB _initMoneyMgr _getMoney:{0}", mId);
+                logService_._logError(logError);
                 return;
             }
             money_._setValue(mValue);
@@ -43,8 +40,7 @@ namespace money.core
             money_._setDebts(mDebts);
         }
 
-        public MoneyB()
-        {
+        public MoneyB() {
             mId = 0;
             mValue = 0;
             mTotal = 0;

@@ -2,26 +2,23 @@
 {
     public class Property
     {
-        public __t _getPropertyMgr<__t>() where __t : PropertyMgr
-        {
-            return mPropertyMgr as __t;
+        public virtual void _runPreinit() {
         }
 
-        public void _setPropertyMgr(PropertyMgr nPropertyMgr)
-        {
+        public virtual void _runInit() {
+        }
+
+        public void _setPropertyMgr(
+            PropertyMgr nPropertyMgr) {
             mPropertyMgr = nPropertyMgr;
         }
 
-        public virtual void _runInit()
-        {
+        public __t _getPropertyMgr<__t>()
+            where __t : PropertyMgr {
+            return mPropertyMgr as __t;
         }
 
-        public virtual void _runStart()
-        {
-        }
-
-        public Property()
-        {
+        public Property() {
             mPropertyMgr = null;
         }
 

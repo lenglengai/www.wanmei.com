@@ -6,18 +6,15 @@ namespace money.core
 {
     public class MoneyConfig : IStream
     {
-        public void _serialize(ISerialize nSerialize)
-        {
+        public void _serialize(ISerialize nSerialize) {
             nSerialize._serialize(ref mId, @"id");
         }
 
-        public uint _getId()
-        {
+        public uint _getId() {
             return mId;
         }
 
-        public MoneyConfig()
-        {
+        public MoneyConfig() {
             mId = 0;
         }
 

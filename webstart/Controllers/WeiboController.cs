@@ -13,15 +13,13 @@ namespace webstart.Controllers
     public class WeiboController : ApiController
     {
         [HttpPost]
-        public StatusCreateC _createStatus(StatusCreateS nStatusCreateS)
-        {
+        public StatusCreateC _createStatus(StatusCreateS nStatusCreateS) {
             StatusService statusService_ = __singleton<StatusService>._instance();
             return statusService_._createStatus(nStatusCreateS);
         }
 
         [HttpPost]
-        public StatusGetC _getStatus(StatusGetS nStatusGetS)
-        {
+        public StatusGetC _getStatus(StatusGetS nStatusGetS) {
             StatusService statusService_ = __singleton<StatusService>._instance();
             return statusService_._getStatus(nStatusGetS);
         }

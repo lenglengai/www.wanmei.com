@@ -30,6 +30,7 @@ BEGIN
 					`accountName` VARCHAR(45) NOT NULL ,
 					`nickName` VARCHAR(45) NOT NULL ,
 					`passward` VARCHAR(45) NOT NULL ,
+					`getPassward` VARCHAR(45) NOT NULL ,
 					`createTime` BIGINT NOT NULL ,
 					`clusterID` INT(10) UNSIGNED NOT NULL ,
 					`serverID` INT(10) UNSIGNED NOT NULL ,

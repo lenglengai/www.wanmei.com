@@ -53,8 +53,6 @@ namespace account.core
             result_._setId(mAccountId);
             result_._setNick(mNickName);
             result_._setTicks(DateTime.Now.Ticks);
-            AccountCreator accountCreator_ = __singleton<AccountCreator>._instance();
-            accountCreator_._runCreate(result_);
             return result_;
         }
 

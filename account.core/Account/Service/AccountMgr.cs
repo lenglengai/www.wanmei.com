@@ -9,15 +9,15 @@ namespace account.core
 {
     public class AccountMgr : PropertyMgr
     {
-        public int _createAccount(string nAccountName, string nNickname, string nPassward)
-        {
+        public int _createAccount(string nAccountName,
+            string nNickname, string nPassward, string nGetPassward) {
             int result_ = AccountError_.mSucess_;
             SqlCommand sqlCommand_ = new SqlCommand();
-            AccountCreateB accountCreateB_ = new AccountCreateB(nAccountName, nNickname, nPassward, mId);
+            AccountCreateB accountCreateB_ = new AccountCreateB(nAccountName,
+                nNickname, nPassward, nGetPassward, mId);
             sqlCommand_._addHeadstream(accountCreateB_);
             SqlService sqlService_ = __singleton<SqlService>._instance();
-            if (!sqlService_._runSqlCommand(sqlCommand_))
-            {
+            if (!sqlService_._runSqlCommand(sqlCommand_)) {
                 result_ = AccountError_.mSql_;
             }
             return result_;
@@ -80,76 +80,66 @@ namespace account.core
                 result_ = nAccountLoginB._createAccount();
                 result_._addDeviceType(nDeviceType);
                 result_._setAccountMgr(this);
+                AccountCreator accountCreator_ = __singleton<AccountCreator>._instance();
+                accountCreator_._runCreate(result_);
                 result_.m_tRunLogin();
                 mAccounts[accountId] = result_;
             }
             return result_;
         }
 
-        public int _logoutAccount(string nAccountName, long nDeviceId, uint nDeviceType)
-        {
+        public int _logoutAccount(string nAccountName,
+            long nDeviceId, uint nDeviceType) {
             int result_ = AccountError_.mSucess_;
             Account account_ = this._getAccount(nAccountName);
-            if (null != account_)
-            {
+            if (null != account_) {
                 result_ = account_._logout(nDeviceId, nDeviceType);
-                if (!account_._isOnline())
-                {
+                if (!account_._isOnline()) {
                     account_.m_tRunLogout();
                     mAccounts.Remove(account_._getId());
                 }
-            }
-            else
-            {
+            } else {
                 result_ = AccountError_.mNoLogin_;
             }
             return result_;
         }
 
-        public Account _getAccount(AccountGet nAccountGet)
-        {
+        public Account _getAccount(AccountGet nAccountGet) {
             Account result_ = null;
             Account account_ = this._getAccount(nAccountGet.m_tName);
-            if (null != account_)
-            {
-                int accountError_ = account_._checkErrorCode(nAccountGet.m_tDeviceId, (uint)(nAccountGet.m_tDeviceType));
-                if (AccountError_.mSucess_ == accountError_)
-                {
+            if (null != account_) {
+                int accountError_ = account_._checkErrorCode(nAccountGet.m_tDeviceId,
+                    (uint)(nAccountGet.m_tDeviceType));
+                if (AccountError_.mSucess_ == accountError_) {
                     result_ = account_;
                 }
             }
             return result_;
         }
 
-        public Account _getAccount(string nAccountName)
-        {
+        public Account _getAccount(string nAccountName) {
             Account result_ = null;
             uint accountId_ = GenerateId._runNameId(nAccountName);
-            if (mAccounts.ContainsKey(accountId_))
-            {
+            if (mAccounts.ContainsKey(accountId_)) {
                 result_ = mAccounts[accountId_];
             }
             return result_;
         }
 
-        int _checkDevice(uint nDeviceType)
-        {
+        int _checkDevice(uint nDeviceType) {
             int result_ = AccountError_.mSucess_;
             DeviceService deviceMgr_ = __singleton<DeviceService>._instance();
-            if (!deviceMgr_._contain(nDeviceType))
-            {
+            if (!deviceMgr_._contain(nDeviceType)) {
                 result_ = AccountError_.mDevice_;
             }
             return result_;
         }
 
-        public uint _getId()
-        {
+        public uint _getId() {
             return mId;
         }
 
-        public AccountMgr(uint nId)
-        {
+        public AccountMgr(uint nId) {
             mAccounts = new Dictionary<uint, Account>();
             mId = nId;
         }

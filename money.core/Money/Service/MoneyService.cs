@@ -7,18 +7,15 @@ namespace money.core
 {
     public class MoneyService : IHeadstream
     {
-        public void _headSerialize(ISerialize nSerialize)
-        {
+        public void _headSerialize(ISerialize nSerialize) {
             nSerialize._serialize(ref mMoneyConfig, @"moneys");
         }
 
-        public string _streamName()
-        {
+        public string _streamName() {
             return @"moneyService"; 
         }
 
-        public void _initMoneyMgr(MoneyMgr nMoneyMgr)
-        {
+        public void _initMoneyMgr(MoneyMgr nMoneyMgr) {
             foreach (MoneyConfig i in mMoneyConfig)
             {
                 Money money_ = new Money(i._getId());
@@ -26,14 +23,12 @@ namespace money.core
             }
         }
 
-        public void _runInit()
-        {
+        public void _runInit() {
             this._initConfig();
             this._initProperty();
         }
 
-        void _initConfig()
-        {
+        void _initConfig() {
             string accountConfigUrl_ = @"config/moneyConfig.xml";
             XmlReader xmlReader_ = new XmlReader();
             xmlReader_._openUrl(accountConfigUrl_);
@@ -42,14 +37,12 @@ namespace money.core
             xmlReader_._runClose();
         }
 
-        void _initProperty()
-        {
+        void _initProperty() {
             AccountCreator accountCreator_ = __singleton<AccountCreator>._instance();
             accountCreator_._registerCreate(new PropertyId<MoneyMgr>());
         }
 
-        public MoneyService()
-        {
+        public MoneyService() {
             mMoneyConfig = new List<MoneyConfig>();
         }
 

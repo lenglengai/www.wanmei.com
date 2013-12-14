@@ -9,18 +9,15 @@ namespace money.core
 {
     public class MoneyLoadB : ISqlHeadstream
     {
-        public void _runSelect(ISqlCommand nSqlCommand)
-        {
+        public void _runSelect(ISqlCommand nSqlCommand) {
             nSqlCommand._serialize(ref mMoneyB, @"moneys");
         }
 
-        public void _runWhere(ISqlCommand nSqlCommand)
-        {
+        public void _runWhere(ISqlCommand nSqlCommand) {
             nSqlCommand._serialize(ref mAccountId, @"WHERE accountId=");
         }
 
-        public string _tableName()
-        {
+        public string _tableName() {
             return string.Format(@"money_{0}", mAccountMgrId);
         }
 

@@ -13,6 +13,7 @@ namespace account.core
             nSqlCommand._serialize(ref mAccountName, @"accountName");
             nSqlCommand._serialize(ref mNickName, @"nickName");
             nSqlCommand._serialize(ref mPassward, @"passward");
+            nSqlCommand._serialize(ref mGetPassward, @"getPassward");
             nSqlCommand._serialize(ref mTicks, @"createTime");
             nSqlCommand._serialize(ref mClusterID, @"clusterID");
             nSqlCommand._serialize(ref mServerID, @"serverID");
@@ -34,7 +35,8 @@ namespace account.core
             return SqlType_.mInsert_;
         }
 
-        public AccountCreateB(string nAccountName, string nNickname, string nPassward, uint nAccountMgrId)
+        public AccountCreateB(string nAccountName, string nNickname, 
+            string nPassward, string nGetPassward, uint nAccountMgrId)
         {
             mApplicationId = 0;
             mAccountId = GenerateId._runNameId(nAccountName);
@@ -46,6 +48,7 @@ namespace account.core
             mAccountMgrId = nAccountMgrId;
             mNickName = nNickname;
             mPassward = nPassward;
+            mGetPassward = nGetPassward;
             mTicks = DateTime.Now.Ticks;
         }
 
@@ -54,6 +57,7 @@ namespace account.core
         string mAccountName;
         string mNickName;
         string mPassward;
+        string mGetPassward;
         long mTicks;
         uint mClusterID;
         uint mServerID;

@@ -43,8 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\Exception\ExceptionService.cs" />
+    <Compile Include="Service\Exception\CodeException.cs" />
     <Compile Include="Common\GenerateId.cs" />
     <Compile Include="Common\_RunSlot.cs" />
+    <Compile Include="Service\Message\WebMessage.cs" />
+    <Compile Include="Service\Message\IMessage.cs" />
+    <Compile Include="Service\Message\MessageService.cs" />
     <Compile Include="Serialize\Headstream\XmlWriter.cs" />
     <Compile Include="Service\Device\DeviceService.cs" />
     <Compile Include="Service\Device\DeviceStatus.cs" />
@@ -88,6 +93,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

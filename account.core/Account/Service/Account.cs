@@ -9,23 +9,19 @@ namespace account.core
 {
     public class Account : PropertyMgr
     {
-        public int _checkErrorCode(long nDeviceId, uint nDeviceType)
-        {
+        public int _checkErrorCode(long nDeviceId, uint nDeviceType) {
             int result_ = AccountError_.mSucess_;
             DeviceStatus deviceStatus_ = this._getDeviceStatus(nDeviceType);
-            if (null == deviceStatus_)
-            {
+            if (null == deviceStatus_) {
                 result_ = AccountError_.mDeviceType_;
             }
-            if ((null != deviceStatus_) && (deviceStatus_._getId() != nDeviceId))
-            {
+            if ((null != deviceStatus_) && (deviceStatus_._getId() != nDeviceId)) {
                 result_ = AccountError_.mDeviceId_;
             }
             return result_;
         }
 
-        public int _logout(long nDeviceId, uint nDeviceType)
-        {
+        public int _logout(long nDeviceId, uint nDeviceType) {
             int result_ = AccountError_.mSucess_;
             DeviceStatus deviceStatus_ = this._getDeviceStatus(nDeviceType);
             if (null == deviceStatus_)
@@ -108,13 +104,12 @@ namespace account.core
         public _RunSlot m_tRunLogin;
         public _RunSlot m_tRunLogout;
 
-        public Account()
-        {
+        public Account(string nNick, AccountMgr nAccountMgr) {
             mDeviceStatus = new Dictionary<uint, DeviceStatus>();
-            mAccountMgr = null;
+            mAccountMgr = nAccountMgr;
             m_tRunLogin = null;
             m_tRunLogout = null;
-            mNick = null;
+            mNick = nNick;
             mId = 0;
             mTicks = 0;
         }

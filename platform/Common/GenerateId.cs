@@ -5,14 +5,12 @@ namespace platform
 {
     public class GenerateId
     {
-        public static long _runId(string nName)
-        {
+        public static long _runId(string nName) {
             uint id_ = _runCommon(nName);
             return _runId(id_);
         }
 
-        public static long _runId(uint nId)
-        {
+        public static long _runId(uint nId) {
             DateTime nowTime_ = DateTime.Now;
             DateTime begTime_ = new DateTime(2013, 10, 1);
             TimeSpan timeSpan = nowTime_ - begTime_;
@@ -22,62 +20,48 @@ namespace platform
             return result_;
         }
 
-        public static uint _runCommon(string nName)
-        {
+        public static uint _runCommon(string nName) {
             return _runHash(nName, 0x100);
         }
 
-        public static uint _runComputer()
-        {
+        public static uint _runComputer() {
             return _runCommon(@"computer");
         }
         
-        public static uint _runCellphone()
-        {
+        public static uint _runCellphone() {
             return _runCommon(@"cellphone");
         }
 
-        public static uint _runNameId(string nName)
-        {
+        public static uint _runNameId(string nName) {
             return _runHash(nName, 0x50);
         }
 
-        public static uint _runPasswardId(string nName)
-        {
+        public static uint _runPasswardId(string nName) {
             return _runHash(nName, 0x300);
         }
 
-        public static uint _runClusterID(string nName)
-        {
+        public static uint _runClusterID(string nName) {
             return _runHash(nName, 0x100);
         }
 
-        public static uint _runServerID(string nName)
-        {
+        public static uint _runServerID(string nName) {
             return _runHash(nName, 0x150);
         }
 
-        public static uint _runDatabaseId(string nName)
-        {
+        public static uint _runDatabaseId(string nName) {
             return _runHash(nName, 0x200);
         }
 
-        public static uint _runTableId(string nName)
-        {
+        public static uint _runTableId(string nName) {
             return _runHash(nName, 0x250);
         }
 
-        static uint _runHash(string nKey, uint nOffset)
-        {
+        static uint _runHash(string nKey, uint nOffset) {
             byte[] bytes = Encoding.UTF8.GetBytes(nKey.ToUpper());
-
             uint seed1 = 0x7FED7FED;
             uint seed2 = 0xEEEEEEEE;
-
             uint ch;
-
-            foreach (byte i in bytes)
-            {
+            foreach (byte i in bytes) {
                 ch = i;
                 seed1 = mCrcBuf[nOffset + ch] ^ (seed1 + seed2);
                 seed2 = ch + seed1 + seed2 + (seed2 << 5) + 3;
@@ -85,7 +69,7 @@ namespace platform
             return seed1;
         }
 
-        static uint[] mCrcBuf = new uint[0x500]{
+        static uint[] mCrcBuf = new uint[0x500] {
             0x55c636e2, 0x02be0170, 0x584b71d4, 0x2984f00e, 0xb682c809, 0x91cf876b,
             0x775a9c24, 0x597d5ca5, 0x5a1afeb2, 0xd3e9ce0d, 0x32cdcdf8, 0xb18201cd,
             0x3cce05ce, 0xa55d13be, 0xbb0afe71, 0x9376ab33, 0x848f645e, 0x87e45a45,
