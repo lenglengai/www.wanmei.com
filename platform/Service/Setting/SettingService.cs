@@ -5,33 +5,27 @@ namespace platform
 {
     public class SettingService
     {
-        public bool _checkServerId(uint nServerId)
-        {
+        public bool _checkServerId(uint nServerId) {
             return (mServerId == nServerId);
         }
 
-        public void _setServerId(uint nServerId)
-        {
+        public void _setServerId(uint nServerId) {
             mServerId = nServerId;
         }
 
-        public uint _getServerId()
-        {
+        public uint _getServerId() {
             return mServerId;
         }
 
-        public void _runInit(string nPath = null)
-        {
+        public void _runInit(string nPath = null) {
             mSystemPath = Path.Combine(nPath, @"bin");
         }
 
-        public string _systemPath()
-        {
+        public string _systemPath() {
             return mSystemPath;
         }
 
-        public SettingService()
-        {
+        public SettingService() {
             mSystemPath = null;
             mServerId = 0;
         }

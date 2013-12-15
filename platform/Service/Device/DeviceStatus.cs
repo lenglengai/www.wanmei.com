@@ -18,7 +18,8 @@
             return mId;
         }
 
-        public DeviceStatus(long nId, uint nType) {
+        public DeviceStatus(long nId,
+            uint nType) {
             mId = nId;
             mType = nType;
         }

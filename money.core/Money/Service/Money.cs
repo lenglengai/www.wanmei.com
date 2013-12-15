@@ -4,88 +4,71 @@ namespace money.core
 {
     public class Money
     {
-        public void _setId(uint nId)
-        {
+        public void _setId(uint nId) {
             mId = nId;
         }
 
-        public uint _getId()
-        {
+        public uint _getId() {
             return mId;
         }
 
-        public void _setValue(uint nValue)
-        {
+        public void _setValue(uint nValue) {
             mValue = nValue;
         }
 
-        public uint _getValue()
-        {
+        public uint _getValue() {
             return mValue;
         }
 
-        public void _setTotal(uint nTotal)
-        {
+        public void _setTotal(uint nTotal) {
             mTotal = nTotal;
         }
 
-        public uint _getTotal()
-        {
+        public uint _getTotal() {
             return mTotal;
         }
 
-        public void _setDayInc(uint nDayInc)
-        {
+        public void _setDayInc(uint nDayInc) {
             mDayInc = nDayInc;
         }
 
-        public uint _getDayInc()
-        {
+        public uint _getDayInc() {
             return mDayInc;
         }
 
-        public void _setDayDec(uint nDayDec)
-        {
+        public void _setDayDec(uint nDayDec) {
             mDayDec = nDayDec;
         }
 
-        public uint _getDayDec()
-        {
+        public uint _getDayDec() {
             return mDayDec;
         }
 
-        public void _setMaxInc(uint nMaxInc)
-        {
+        public void _setMaxInc(uint nMaxInc) {
             mMaxInc = nMaxInc;
         }
 
-        public uint _getMaxInc()
-        {
+        public uint _getMaxInc() {
             return mMaxInc;
         }
 
-        public void _setMaxDec(uint nMaxDec)
-        {
+        public void _setMaxDec(uint nMaxDec) {
             mMaxDec = nMaxDec;
         }
 
-        public uint _getMaxDec()
-        {
+        public uint _getMaxDec() {
             return mMaxDec;
         }
 
-        public void _setDebts(uint nDebts)
-        {
+        public void _setDebts(uint nDebts) {
             mDebts = nDebts;
         }
 
-        public uint _getDebts()
-        {
+        public uint _getDebts() {
             return mDebts;
         }
 
-        public Money(uint nId)
-        {
+        public Money(uint nId) {
             mId = nId;
             mValue = 0;
             mTotal = 0;

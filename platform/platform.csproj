@@ -43,8 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Service\Exception\ExceptionService.cs" />
-    <Compile Include="Service\Exception\CodeException.cs" />
     <Compile Include="Common\GenerateId.cs" />
     <Compile Include="Common\_RunSlot.cs" />
     <Compile Include="Service\Message\WebMessage.cs" />
@@ -78,6 +76,8 @@
     <Compile Include="Service\__singleton.cs" />
     <Compile Include="Service\Sql\SqlCommand.cs" />
     <Compile Include="Service\Sql\SqlReader.cs" />
+    <Compile Include="Service\String\StringTable.cs" />
+    <Compile Include="Service\String\StringService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />

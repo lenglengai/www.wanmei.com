@@ -6,8 +6,7 @@ namespace account.core
 {
     public class AccountCreateB : ISqlHeadstream
     {
-        public void _runSelect(ISqlCommand nSqlCommand)
-        {
+        public void _runSelect(ISqlCommand nSqlCommand) {
             nSqlCommand._serialize(ref mAccountId, @"accountId");
             nSqlCommand._serialize(ref mApplicationId, @"applicationId");
             nSqlCommand._serialize(ref mAccountName, @"accountName");
@@ -21,23 +20,19 @@ namespace account.core
             nSqlCommand._serialize(ref mTableId, @"tableId");
         }
 
-        public void _runWhere(ISqlCommand nSqlCommand)
-        {
+        public void _runWhere(ISqlCommand nSqlCommand) {
         }
 
-        public string _tableName()
-        {
+        public string _tableName() {
             return ("account_" + mAccountMgrId);
         }
 
-        public SqlType_ _sqlType()
-        {
+        public SqlType_ _sqlType() {
             return SqlType_.mInsert_;
         }
 
         public AccountCreateB(string nAccountName, string nNickname, 
-            string nPassward, string nGetPassward, uint nAccountMgrId)
-        {
+            string nPassward, string nGetPassward, uint nAccountMgrId) {
             mApplicationId = 0;
             mAccountId = GenerateId._runNameId(nAccountName);
             mClusterID = GenerateId._runClusterID(nAccountName);

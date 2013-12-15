@@ -16,8 +16,7 @@ namespace money.core
         }
 
         public void _initMoneyMgr(MoneyMgr nMoneyMgr) {
-            foreach (MoneyConfig i in mMoneyConfig)
-            {
+            foreach (MoneyConfig i in mMoneyConfig) {
                 Money money_ = new Money(i._getId());
                 nMoneyMgr._addMoney(money_);
             }
@@ -29,7 +28,8 @@ namespace money.core
         }
 
         void _initConfig() {
-            string accountConfigUrl_ = @"config/moneyConfig.xml";
+            string accountConfigUrl_ =
+                @"config/moneyConfig.xml";
             XmlReader xmlReader_ = new XmlReader();
             xmlReader_._openUrl(accountConfigUrl_);
             xmlReader_._selectStream(_streamName());
@@ -38,8 +38,10 @@ namespace money.core
         }
 
         void _initProperty() {
-            AccountCreator accountCreator_ = __singleton<AccountCreator>._instance();
-            accountCreator_._registerCreate(new PropertyId<MoneyMgr>());
+            AccountCreator accountCreator_ = 
+                __singleton<AccountCreator>._instance();
+            accountCreator_._registerCreate(
+                new PropertyId<MoneyMgr>());
         }
 
         public MoneyService() {

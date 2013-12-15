@@ -7,20 +7,16 @@ namespace platform
 {
     public class WebMessage : IMessage
     {
-        public void _msgFatal(string nValue)
-        {
+        public void _msgFatal(string nType, string nValue) {
         }
 
-        public void _msgError(string nValue)
-        {
+        public void _msgError(string nType, string nValue) {
         }
 
-        public void _msgWarn(string nValue)
-        {
+        public void _msgWarn(string nType, string nValue) {
         }
 
-        public void _msgInfo(string nValue)
-        {
+        public void _msgInfo(string nType, string nValue) {
         }
     }
 }

@@ -7,33 +7,27 @@ namespace platform
 {
     public class MessageService
     {
-        public void _msgFatal(string nValue)
-        {
-            mMessage._msgFatal(nValue);
+        public void _msgFatal(string nType, string nValue) {
+            mMessage._msgFatal(nType, nValue);
         }
 
-        public void _msgError(string nValue)
-        {
-            mMessage._msgError(nValue);
+        public void _msgError(string nType, string nValue) {
+            mMessage._msgError(nType, nValue);
         }
 
-        public void _msgWarn(string nValue)
-        {
-            mMessage._msgWarn(nValue);
+        public void _msgWarn(string nType, string nValue) {
+            mMessage._msgWarn(nType, nValue);
         }
 
-        public void _msgInfo(string nValue)
-        {
-            mMessage._msgInfo(nValue);
+        public void _msgInfo(string nType, string nValue) {
+            mMessage._msgInfo(nType, nValue);
         }
 
-        public void _runInit()
-        {
+        public void _runInit() {
             mMessage = new WebMessage();
         }
 
-        public MessageService()
-        {
+        public MessageService() {
             mMessage = null;
         }
 

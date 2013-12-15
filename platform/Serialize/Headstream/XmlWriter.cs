@@ -33,9 +33,11 @@ namespace platform
 
         public void _serialize(ref List<sbyte> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ =
+                mXmlDocument.CreateElement(nName);
             foreach (sbyte i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__i8");
+                XmlElement child_ =
+                    mXmlDocument.CreateElement("__i8");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -54,9 +56,11 @@ namespace platform
 
         public void _serialize(ref List<byte> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (byte i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__u8");
+                XmlElement child_ = 
+                    mXmlDocument.CreateElement("__u8");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -75,9 +79,11 @@ namespace platform
 
         public void _serialize(ref List<short> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (short i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__i16");
+                XmlElement child_ =
+                    mXmlDocument.CreateElement("__i16");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -96,9 +102,11 @@ namespace platform
 
         public void _serialize(ref List<ushort> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ =
+                mXmlDocument.CreateElement(nName);
             foreach (ushort i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__u16");
+                XmlElement child_ =
+                    mXmlDocument.CreateElement("__u16");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -117,9 +125,11 @@ namespace platform
 
         public void _serialize(ref List<int> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (int i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__i32");
+                XmlElement child_ = 
+                    mXmlDocument.CreateElement("__i32");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -138,9 +148,11 @@ namespace platform
 
         public void _serialize(ref List<uint> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ =
+                mXmlDocument.CreateElement(nName);
             foreach (uint i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__u32");
+                XmlElement child_ =
+                    mXmlDocument.CreateElement("__u32");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -161,7 +173,8 @@ namespace platform
             if (null == nValue) return;
             XmlElement root_ = mXmlDocument.CreateElement(nName);
             foreach (long i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__i64");
+                XmlElement child_ =
+                    mXmlDocument.CreateElement("__i64");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -180,9 +193,11 @@ namespace platform
 
         public void _serialize(ref List<ulong> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (ulong i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__u64");
+                XmlElement child_ = 
+                    mXmlDocument.CreateElement("__u64");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -201,9 +216,11 @@ namespace platform
 
         public void _serialize(ref List<string> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (string i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__str");
+                XmlElement child_ = 
+                    mXmlDocument.CreateElement("__str");
                 child_.InnerText = i.Trim();
                 root_.AppendChild(child_);
             }
@@ -222,7 +239,8 @@ namespace platform
 
         public void _serialize(ref List<DateTime> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ =
+                mXmlDocument.CreateElement(nName);
             foreach (DateTime i in nValue) {
                 XmlElement child_ = 
                     mXmlDocument.CreateElement("__datetime");
@@ -244,9 +262,11 @@ namespace platform
 
         public void _serialize(ref List<float> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (float i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__float");
+                XmlElement child_ =
+                    mXmlDocument.CreateElement("__float");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -265,9 +285,11 @@ namespace platform
 
         public void _serialize(ref List<double> nValue, string nName) {
             if (null == nValue) return;
-            XmlElement root_ = mXmlDocument.CreateElement(nName);
+            XmlElement root_ = 
+                mXmlDocument.CreateElement(nName);
             foreach (double i in nValue) {
-                XmlElement child_ = mXmlDocument.CreateElement("__double");
+                XmlElement child_ = 
+                    mXmlDocument.CreateElement("__double");
                 child_.InnerText = Convert.ToString(i);
                 root_.AppendChild(child_);
             }
@@ -278,7 +300,8 @@ namespace platform
             __t nOptimal = default(__t)) where __t : IStream {
             if (null == nValue) return;
             mXmlElements.Push(mXmlElement);
-            XmlElement xmlElement_ = mXmlDocument.CreateElement(nName);
+            XmlElement xmlElement_ =
+                mXmlDocument.CreateElement(nName);
             mXmlElement.AppendChild(xmlElement_);
             mXmlElement = xmlElement_;
             nValue._serialize(this);
@@ -289,7 +312,8 @@ namespace platform
             where __t : IStream {
             if (null == nValue) return;
             mXmlElements.Push(mXmlElement);
-            XmlElement xmlElement_ = mXmlDocument.CreateElement(nName);
+            XmlElement xmlElement_ =
+                mXmlDocument.CreateElement(nName);
             mXmlElement.AppendChild(xmlElement_);
             mXmlElement = xmlElement_;
             for (int i = 0; i < nValue.Count; i++) {
@@ -305,13 +329,15 @@ namespace platform
             string systemPath = settingService_._systemPath();
             string mPath = Path.Combine(systemPath, nUrl);
             XmlDeclaration xmlDeclaration_ =
-                mXmlDocument.CreateXmlDeclaration("1.0", "utf-8", null);
+                mXmlDocument.CreateXmlDeclaration("1.0",
+                "utf-8", null);
             mXmlDocument.AppendChild(xmlDeclaration_);
         }
 
         public void _openString(string nString) {
             XmlDeclaration xmlDeclaration_ = 
-                mXmlDocument.CreateXmlDeclaration("1.0", "utf-8", null);
+                mXmlDocument.CreateXmlDeclaration("1.0",
+                "utf-8", null);
             mXmlDocument.AppendChild(xmlDeclaration_);
             mPath = nString;
             mMemory = true;
@@ -325,7 +351,8 @@ namespace platform
         }
 
         public void _selectStream(string nStreamName) {
-            mXmlElement = mXmlDocument.CreateElement(nStreamName);
+            mXmlElement = 
+                mXmlDocument.CreateElement(nStreamName);
             mXmlDocument.AppendChild(mXmlElement);
         }
 

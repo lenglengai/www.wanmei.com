@@ -26,8 +26,11 @@ namespace money.core
         public void _initMoneyMgr(MoneyMgr nMoneyMgr) {
             Money money_ = nMoneyMgr._getMoney(mId);
             if (null == money_) {
-                LogService logService_ = __singleton<LogService>._instance();
-                string logError = string.Format(@"MoneyB _initMoneyMgr _getMoney:{0}", mId);
+                LogService logService_ = 
+                    __singleton<LogService>._instance();
+                string logError = 
+                    string.Format(@"MoneyB _initMoneyMgr:{0}"
+                    , mId);
                 logService_._logError(logError);
                 return;
             }

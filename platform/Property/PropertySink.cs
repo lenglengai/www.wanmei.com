@@ -22,7 +22,7 @@ namespace platform
                     string.Format(@"PropertySink _registerCreate:{0}",
                         propertyId_);
                 logService_._logError(logError);
-                throw new CodeException();
+                return;
             }
             mCreates[propertyId_] = nPropertyId;
         }

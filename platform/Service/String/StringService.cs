@@ -5,7 +5,7 @@ using System.Text;
 
 namespace platform
 {
-    public class ExceptionService
+    public class StringService
     {
     }
 }

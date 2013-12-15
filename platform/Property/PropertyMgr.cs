@@ -23,12 +23,13 @@ namespace platform
                     string.Format(@"PropertyMgr _addPropertyId:{0}",
                         propertyId_);
                 logService_._logError(logError);
-                throw new Exception();
+
+                return;
             }
             Property property_ =
-                nPropertyId._createProperty(this);
+                nPropertyId._createProperty();
             property_._setPropertyMgr(this);
-            property_._runInit();
+            property_._runPreinit();
             mPropertys[propertyId_] = property_;
         }
 
