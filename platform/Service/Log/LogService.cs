@@ -17,7 +17,7 @@ namespace platform
             mLog.Warn(nValue);
         }
 
-        public void _runInit() {
+        public void _runPreinit() {
             mLog = LogManager.GetLogger("log");
         }
 

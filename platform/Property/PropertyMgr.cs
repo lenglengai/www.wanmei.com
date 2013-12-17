@@ -23,7 +23,10 @@ namespace platform
                     string.Format(@"PropertyMgr _addPropertyId:{0}",
                         propertyId_);
                 logService_._logError(logError);
-
+                MessageService messageService =
+                    __singleton<MessageService>._instance();
+                messageService._setRun(RunType_.mError_);
+                messageService._msgError()
                 return;
             }
             Property property_ =

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace platform
 {
-    public class WebMessage : IMessage
+    public class MobileMessage : IMessage
     {
         public void _msgFatal(string nValue) {
         }

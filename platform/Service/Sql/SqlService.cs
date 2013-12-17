@@ -80,7 +80,7 @@ namespace platform
             return result;
         }
 
-        public void _runInit() {
+        public void _runPreinit() {
             this._initConfig();
         }
 

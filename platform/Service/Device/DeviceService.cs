@@ -8,7 +8,7 @@ namespace platform
             return mDeviceTypes.Contains(nDeviceType);
         }
 
-        public void _runInit() {
+        public void _runPreinit() {
             mDeviceTypes.Add(GenerateId._runComputer());
             mDeviceTypes.Add(GenerateId._runCellphone());
         }

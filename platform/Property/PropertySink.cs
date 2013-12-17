@@ -31,6 +31,13 @@ namespace platform
             IPropertyId result_ = null;
             if (mCreates.ContainsKey(nPropertyId)) {
                 result_ = mCreates[nPropertyId];
+            } else {
+                LogService logService_ =
+                    __singleton<LogService>._instance();
+                string logError =
+                    string.Format(@"PropertySink _getPropertyId:{0}",
+                        nPropertyId);
+                logService_._logError(logError);
             }
             return result_;
         }

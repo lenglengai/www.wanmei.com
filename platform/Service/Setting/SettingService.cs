@@ -17,7 +17,7 @@ namespace platform
             return mServerId;
         }
 
-        public void _runInit(string nPath = null) {
+        public void _runPreinit(string nPath = null) {
             mSystemPath = Path.Combine(nPath, @"bin");
         }
 
