@@ -5,7 +5,7 @@ using System.Text;
 
 namespace platform
 {
-    public abstract class StringError
+    public class StringError<__t>
     {
         public abstract string getNamespace();
 

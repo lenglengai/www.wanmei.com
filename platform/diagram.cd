@@ -31,7 +31,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="platform.StringError" Collapsed="true">
+  <Class Name="platform.StringError&lt;__t&gt;" Collapsed="true">
     <Position X="0.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAAA=</HashCode>

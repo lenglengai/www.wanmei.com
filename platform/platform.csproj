@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Common\GenerateId.cs" />
     <Compile Include="Common\_RunSlot.cs" />
-    <Compile Include="Common\PlatformError.cs" />
     <Compile Include="Service\Message\RunType_.cs" />
     <Compile Include="Service\Message\MobileMessage.cs" />
     <Compile Include="Service\Message\WebMessage.cs" />
