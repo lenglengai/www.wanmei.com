@@ -45,11 +45,6 @@
   <ItemGroup>
     <Compile Include="Common\GenerateId.cs" />
     <Compile Include="Common\_RunSlot.cs" />
-    <Compile Include="Service\Message\RunType_.cs" />
-    <Compile Include="Service\Message\MobileMessage.cs" />
-    <Compile Include="Service\Message\WebMessage.cs" />
-    <Compile Include="Service\Message\IMessage.cs" />
-    <Compile Include="Service\Message\MessageService.cs" />
     <Compile Include="Serialize\Headstream\XmlWriter.cs" />
     <Compile Include="Service\Device\DeviceService.cs" />
     <Compile Include="Service\Device\DeviceStatus.cs" />
@@ -81,7 +76,6 @@
     <Compile Include="Service\String\StringTable.cs" />
     <Compile Include="Service\String\StringService.cs" />
     <Compile Include="Service\String\Strings.cs" />
-    <Compile Include="Service\String\StringError.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />

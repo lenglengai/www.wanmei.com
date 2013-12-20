@@ -44,7 +44,12 @@ namespace platform
                 logService_._logError(logError);
             }
         }
+        public void _runPreinit() {
+        }
 
+        public StringService() {
+            mStringTable = new Dictionary<uint, StringTable>();
+        }
         Dictionary<uint, StringTable> mStringTable;
     }
 }

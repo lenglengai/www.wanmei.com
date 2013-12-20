@@ -37,6 +37,9 @@ namespace platform
             return result;
         }
 
+        public StringTable() {
+            mStrings = new Dictionary<uint, string>();
+        }
         Dictionary<uint, string> mStrings;
         string mType;
     }
