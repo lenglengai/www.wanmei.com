@@ -55,24 +55,12 @@ namespace webstart
             initService_._runExit();
         }
 
-        void _runInit()
+        void _runPreinit()
         {
             string systemPath_ = HostingEnvironment.MapPath(@"~");
-            SettingService settingService_ =
-                __singleton<SettingService>._instance();
-            settingService_._runInit(systemPath_);
-
-            LogService logService_ = 
-                __singleton<LogService>._instance();
-            logService_._runInit();
-
-            DeviceService deviceService_ =
-                __singleton<DeviceService>._instance();
-            deviceService_._runInit();
-
-            SqlService sqlService_ = 
-                __singleton<SqlService>._instance();
-            sqlService_._runInit();
+            InitService initService_ = 
+                __singleton<InitService>._instance();
+            initService_._runPreinit();
 
             AccountService accountService_ =
                 __singleton<AccountService>._instance();
