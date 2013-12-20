@@ -64,11 +64,11 @@ namespace webstart
 
             AccountService accountService_ =
                 __singleton<AccountService>._instance();
-            accountService_._runInit();
+            accountService_._runPreinit();
 
             MoneyService moneyService_ =
                 __singleton<MoneyService>._instance();
-            moneyService_._runInit();
+            moneyService_._runPreinit();
         }
 
         void _runStart()

@@ -79,7 +79,7 @@ namespace account.core
             return result_;
         }
 
-        public void _runInit() {
+        public void _runPreinit() {
             this._initConfig();
         }
 
@@ -92,7 +92,7 @@ namespace account.core
             xmlReader_._runClose();
         }
 
-        public void _runStart() {
+        public void _runInit() {
             this._initAccountMgr();
         }
 
