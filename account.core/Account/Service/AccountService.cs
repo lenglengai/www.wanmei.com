@@ -17,12 +17,12 @@ namespace account.core
             return @"accountService";
         }
 
-        public int _createAccount(string nAccountName, string nNickname,
-            string nPassward, string nGetPassward) {
+        public int _createAccount(int nPlatform, string nAccountName, 
+            string nNickname, string nPassward, string nGetPassward) {
             uint hashName_ = GenerateId._runTableId(nAccountName);
             uint accountMgrIndex_ = hashName_ % mAccountMgrCount;
             AccountMgr accountMgr_ = mAccountMgrs[accountMgrIndex_];
-            return accountMgr_._createAccount(nAccountName,
+            return accountMgr_._createAccount(nPlatform, nAccountName,
                 nNickname, nPassward, nGetPassward);
         }
 
@@ -35,16 +35,15 @@ namespace account.core
                 nPassward, nDeviceType);
         }
 
-        public int _logoutAccount(string nAccountName,
-            long nDeviceId, uint nDeviceType, uint nServerId)
-        {
+        public int _logoutAccount(int nPlatformId, string nAccountName,
+            uint nStamp, uint nDeviceId, int nServerId) {
             int result_ = this._checkServerId(nServerId);
             if (AccountError_.mSucess_ == result_) {
                 uint hashName_ = GenerateId._runTableId(nAccountName);
                 uint accountMgrIndex_ = hashName_ % mAccountMgrCount;
                 AccountMgr accountMgr_ = mAccountMgrs[accountMgrIndex_];
                 result_ = accountMgr_._logoutAccount(nAccountName,
-                    nDeviceId, nDeviceType);
+                    nStamp, nDeviceId);
             }
             return result_;
         }
@@ -70,9 +69,10 @@ namespace account.core
             return accountMgr_._getAccount(nAccountName);
         }
 
-        int _checkServerId(uint nServerId) {
+        int _checkServerId(int nServerId) {
             int result_ = AccountError_.mSucess_;
-            SettingService settingService_ = __singleton<SettingService>._instance();
+            SettingService settingService_ = 
+                __singleton<SettingService>._instance();
             if (!settingService_._checkServerId(nServerId)) {
                 result_ = AccountError_.mServerId_;
             }

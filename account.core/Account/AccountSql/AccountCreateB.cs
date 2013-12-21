@@ -8,16 +8,12 @@ namespace account.core
     {
         public void _runSelect(ISqlCommand nSqlCommand) {
             nSqlCommand._serialize(ref mAccountId, @"accountId");
-            nSqlCommand._serialize(ref mApplicationId, @"applicationId");
+            nSqlCommand._serialize(ref mPlatform, @"platformId");
             nSqlCommand._serialize(ref mAccountName, @"accountName");
             nSqlCommand._serialize(ref mNickName, @"nickName");
             nSqlCommand._serialize(ref mPassward, @"passward");
             nSqlCommand._serialize(ref mGetPassward, @"getPassward");
             nSqlCommand._serialize(ref mTicks, @"createTime");
-            nSqlCommand._serialize(ref mClusterID, @"clusterID");
-            nSqlCommand._serialize(ref mServerID, @"serverID");
-            nSqlCommand._serialize(ref mDatabaseId, @"databaseId");
-            nSqlCommand._serialize(ref mTableId, @"tableId");
         }
 
         public void _runWhere(ISqlCommand nSqlCommand) {
@@ -31,14 +27,10 @@ namespace account.core
             return SqlType_.mInsert_;
         }
 
-        public AccountCreateB(string nAccountName, string nNickname, 
+        public AccountCreateB(int nPlatform, string nAccountName, string nNickname, 
             string nPassward, string nGetPassward, uint nAccountMgrId) {
-            mApplicationId = 0;
             mAccountId = GenerateId._runNameId(nAccountName);
-            mClusterID = GenerateId._runClusterID(nAccountName);
-            mServerID = GenerateId._runServerID(nAccountName);
-            mDatabaseId = GenerateId._runDatabaseId(nAccountName);
-            mTableId = GenerateId._runTableId(nAccountName);
+            mPlatform = nPlatform;
             mAccountName = nAccountName;
             mAccountMgrId = nAccountMgrId;
             mNickName = nNickname;
@@ -48,16 +40,12 @@ namespace account.core
         }
 
         uint mAccountId;
-        uint mApplicationId;
+        int mPlatform;
         string mAccountName;
         string mNickName;
         string mPassward;
         string mGetPassward;
         long mTicks;
-        uint mClusterID;
-        uint mServerID;
-        uint mDatabaseId;
-        uint mTableId;
         uint mAccountMgrId;
     }
 }

@@ -5,15 +5,15 @@ namespace platform
 {
     public class SettingService
     {
-        public bool _checkServerId(uint nServerId) {
+        public bool _checkServerId(int nServerId) {
             return (mServerId == nServerId);
         }
 
-        public void _setServerId(uint nServerId) {
+        public void _setServerId(int nServerId) {
             mServerId = nServerId;
         }
 
-        public uint _getServerId() {
+        public int _getServerId() {
             return mServerId;
         }
 
@@ -31,6 +31,6 @@ namespace platform
         }
 
         string mSystemPath;
-        uint mServerId;
+        int mServerId;
     }
 }

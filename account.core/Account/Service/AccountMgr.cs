@@ -9,12 +9,12 @@ namespace account.core
 {
     public class AccountMgr : PropertyMgr
     {
-        public int _createAccount(string nAccountName,
+        public int _createAccount(int nPlatform, string nAccountName,
             string nNickname, string nPassward, string nGetPassward) {
             int result_ = AccountError_.mSucess_;
             SqlCommand sqlCommand_ = new SqlCommand();
-            AccountCreateB accountCreateB_ = new AccountCreateB(nAccountName,
-                nNickname, nPassward, nGetPassward, mId);
+            AccountCreateB accountCreateB_ = new AccountCreateB(nPlatform, 
+                nAccountName, nNickname, nPassward, nGetPassward, mId);
             sqlCommand_._addHeadstream(accountCreateB_);
             SqlService sqlService_ = __singleton<SqlService>._instance();
             if (!sqlService_._runSqlCommand(sqlCommand_)) {
@@ -88,12 +88,12 @@ namespace account.core
             return result_;
         }
 
-        public int _logoutAccount(string nAccountName,
-            long nDeviceId, uint nDeviceType) {
+        public int _logoutAccount(string nAccountName, uint nDeviceId, 
+            uint nStamp) {
             int result_ = AccountError_.mSucess_;
             Account account_ = this._getAccount(nAccountName);
             if (null != account_) {
-                result_ = account_._logout(nDeviceId, nDeviceType);
+                result_ = account_._logout(nDeviceId, nStamp);
                 if (!account_._isOnline()) {
                     account_.m_tRunLogout();
                     mAccounts.Remove(account_._getId());
@@ -108,8 +108,8 @@ namespace account.core
             Account result_ = null;
             Account account_ = this._getAccount(nAccountGet.m_tName);
             if (null != account_) {
-                int accountError_ = account_._checkErrorCode(nAccountGet.m_tDeviceId,
-                    (uint)(nAccountGet.m_tDeviceType));
+                int accountError_ = account_._checkErrorCode(
+                    nAccountGet.m_tDeviceId, (uint)(nAccountGet.m_tDeviceType));
                 if (AccountError_.mSucess_ == accountError_) {
                     result_ = account_;
                 }

@@ -5,19 +5,11 @@ namespace platform
 {
     public class GenerateId
     {
-        public static long _runId(string nName) {
-            uint id_ = _runCommon(nName);
-            return _runId(id_);
-        }
-
-        public static long _runId(uint nId) {
+        public static uint _runStamp() {
             DateTime nowTime_ = DateTime.Now;
-            DateTime begTime_ = new DateTime(2013, 10, 1);
+            DateTime begTime_ = new DateTime(2014, 1, 1);
             TimeSpan timeSpan = nowTime_ - begTime_;
-            long result_ = (long)timeSpan.TotalSeconds;
-            result_ <<= 32;
-            result_ |= nId;
-            return result_;
+            return (uint)timeSpan.TotalSeconds;
         }
 
         public static uint _runCommon(string nName) {

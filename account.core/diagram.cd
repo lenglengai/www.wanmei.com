@@ -1,24 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="account.core.AccountCreateS" Collapsed="true">
+  <Class Name="account.core.AccountState" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
-      <FileName>Account\Message\AccountCreateS.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="account.core.AccountLoginS" Collapsed="true">
-    <Position X="0.5" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>Account\Message\AccountLoginS.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="account.core.AccountLogoutS" Collapsed="true">
-    <Position X="2.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIABAAAAA=</HashCode>
-      <FileName>Account\Message\AccountLogoutS.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Account\Service\AccountState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />

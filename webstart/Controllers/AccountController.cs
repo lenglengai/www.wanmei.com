@@ -15,8 +15,8 @@ namespace webstart.Controllers
         [HttpPost]
         public int _createAccount(AccountCreateS nAccountCreateS) {
             AccountService accountService_ = __singleton<AccountService>._instance();
-            return accountService_._createAccount(nAccountCreateS.m_tName, nAccountCreateS.m_tNick, 
-                nAccountCreateS.m_tPassward, nAccountCreateS.m_tGetPassward);
+            return accountService_._createAccount(nAccountCreateS.m_tPlatform, nAccountCreateS.m_tName, 
+                nAccountCreateS.m_tNick, nAccountCreateS.m_tPassward, nAccountCreateS.m_tGetPassward);
         }
 
         [HttpPost]
@@ -29,8 +29,8 @@ namespace webstart.Controllers
         [HttpPost]
         public int _logoutAccount(AccountLogoutS nAccountLogoutS) {
             AccountService accountService_ = __singleton<AccountService>._instance();
-            return accountService_._logoutAccount(nAccountLogoutS.m_tName, nAccountLogoutS.m_tDeviceId, 
-                (uint)(nAccountLogoutS.m_tDeviceType), (uint)(nAccountLogoutS.m_tServerId));
+            return accountService_._logoutAccount(nAccountLogoutS.m_tPlatform, nAccountLogoutS.m_tName, 
+                (uint)(nAccountLogoutS.m_tStamp),  (uint)(nAccountLogoutS.m_tDeviceId), nAccountLogoutS.m_tServerId);
         }
     }
 }

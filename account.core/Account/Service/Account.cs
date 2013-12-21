@@ -106,7 +106,7 @@ namespace account.core
             mTicks = 0;
         }
 
-        Dictionary<uint, DeviceStatus> mDeviceStatus;
+        Dictionary<uint, uint> mState;
         AccountMgr mAccountMgr;
         string mNick;
         long mTicks;

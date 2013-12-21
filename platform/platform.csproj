@@ -47,7 +47,6 @@
     <Compile Include="Common\_RunSlot.cs" />
     <Compile Include="Serialize\Headstream\XmlWriter.cs" />
     <Compile Include="Service\Device\DeviceService.cs" />
-    <Compile Include="Service\Device\DeviceStatus.cs" />
     <Compile Include="Service\Sql\ISqlCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Property\IPropertyId.cs" />
@@ -76,6 +75,8 @@
     <Compile Include="Service\String\StringTable.cs" />
     <Compile Include="Service\String\StringService.cs" />
     <Compile Include="Service\String\Strings.cs" />
+    <Compile Include="State\State.cs" />
+    <Compile Include="State\StateMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />
