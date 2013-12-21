@@ -10,7 +10,7 @@
   <Class Name="platform.State" Collapsed="true">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAAAAAAgAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>State\State.cs</FileName>
     </TypeIdentifier>
   </Class>
