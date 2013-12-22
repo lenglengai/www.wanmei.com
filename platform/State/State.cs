@@ -20,26 +20,21 @@ namespace platform
 
         }
 
-        public State(int nNo, int nSize) {
-            mMaxNo = nNo * nSize;
+        public State(int nNo, int nCount) {
+            mSize = (int)Math.Log((nNo + 1), 2);
             mNo = nNo;
-            int length = (int)Math.Log((nNo + 1), 2);
-            length *= nSize;
-            mLeft = length % 8;
-            if (mLeft > 0) {
-                mLeft = 8 - mLeft;
-                mLeft = (int)Math.Pow(2, mLeft);
-                length /= 8;
-                length += 1;
-            } else {
-                length /= 8;
+            mCount = mSize * nCount;
+            mLength = mCount / 8;
+            if ( (mCount % 8) > 0 ) {
+                mLength += 1;
             }
-            mValue = new char[length];
+            mValue = new char[mLength];
         }
 
         char[] mValue;
-        int mMaxNo;
-        int mLeft;
+        int mLength;
+        int mCount;
+        int mSize;
         int mNo;
     }
 }
