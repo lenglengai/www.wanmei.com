@@ -5,7 +5,7 @@ using System.Text;
 
 namespace platform
 {
-    public class StateMgr
+    public class CycleBool
     {
     }
 }
