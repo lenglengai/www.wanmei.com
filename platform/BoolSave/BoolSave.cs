@@ -56,7 +56,8 @@
             } else {
                 nPos = 64;
             }
-            if (nLength > mValue.Length) {
+            if ( (nIndex < 1) ||
+                (nLength > mValue.Length) ) {
                 return BoolType_.mOverflow_;
             }
             nLength -= 1;

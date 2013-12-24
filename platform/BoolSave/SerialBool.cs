@@ -20,11 +20,18 @@ namespace platform
                 index -= 1;
                 second = 64;
             }
+            if (index >= mValue.Length) {
+                return BoolType_.mOverflow_;
+            }
             return this._isOpen(index, second);
         }
 
         public BoolType_ _runOpen(byte nIndex)
         {
+            if (nIndex < 1)
+            {
+                return BoolType_.mOverflow_;
+            }
             int first = nIndex * mSize;
             int index = first / 64;
             int second = first % 64;
@@ -68,6 +75,10 @@ namespace platform
         BoolType_ _openIndex(int nIndex, 
             int nFirst, int nSecond)
         {
+            if (nIndex >= mValue.Length)
+            {
+                return BoolType_.mOverflow_;
+            }
             ulong value_ = 1;
             value_ <<= nFirst;
             for (int i = nFirst; i < nSecond; ++i)
