@@ -5,6 +5,8 @@
         mSucess_,
         mClosed_,
         mOpened_,
-        mOverflow_
+        mOverflow_,
+        mError_,
+        mNext_
     }
 }

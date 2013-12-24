@@ -7,35 +7,73 @@ namespace platform
 {
     public class SerialBool
     {
-        public BoolType_ _runOpen(short nIndex)
+        public BoolType_ _isOpen(byte nIndex)
         {
-            nIndex *= mSize;
-            int index = nIndex / 64;
-            int second = nIndex % 64;
-            int first = mSize - second;
-            int pos = 64 - first;
-            ulong value_ = 1;
-            value_ <<= pos;
-            for (int i = pos; i < 64; ++i)
-            {
-                ulong count = value_ & mValue[index];
-                if (count < 1)
-                {
-                    mValue[index] += value_;
-                    return BoolType_.mSucess_;
-                }
-                value_ <<= 1;
+            if (nIndex < 1) {
+                return BoolType_.mOverflow_;
             }
-            index += 1;
-            return _openSecond(nIndex, second);
+            int first = nIndex * mSize;
+            int index = first / 64;
+            int second = first % 64;
+            if (second < 1)
+            {
+                index -= 1;
+                second = 64;
+            }
+            return this._isOpen(index, second);
         }
 
-        BoolType_ _openSecond(int nIndex, int nSecond)
+        public BoolType_ _runOpen(byte nIndex)
+        {
+            int first = nIndex * mSize;
+            int index = first / 64;
+            int second = first % 64;
+            if (mSize <= second) {
+                first = second - mSize;
+                return _openIndex(index, 
+                    first, second);
+            }
+            if (second < 1) {
+                index -= 1;
+                second = 64;
+                first = second - mSize;
+                return _openIndex(index,
+                    first, second);
+            }
+            first = mSize - second;
+            first = 64 - first;
+            BoolType_ result =
+                this._openIndex((index - 1), 
+                first, 64);
+            if (BoolType_.mSucess_ != result) {
+                result =
+                    this._openIndex(index,
+                    0, second);
+            }
+           return result;
+        }
+
+        BoolType_ _isOpen(int nIndex, int nSecond)
         {
             ulong value_ = 1;
-            for (int i = 0; i < nSecond; ++i)
+            value_ <<= (nSecond - 1);
+            ulong count = 
+                (value_ & mValue[nIndex]);
+            if (count > 0) {
+                return BoolType_.mOpened_;
+            }
+            return BoolType_.mClosed_;
+        }
+
+        BoolType_ _openIndex(int nIndex, 
+            int nFirst, int nSecond)
+        {
+            ulong value_ = 1;
+            value_ <<= nFirst;
+            for (int i = nFirst; i < nSecond; ++i)
             {
-                ulong count = value_ & mValue[nIndex];
+                ulong count = 
+                    (value_ & mValue[nIndex]);
                 if (count < 1)
                 {
                     mValue[nIndex] += value_;
