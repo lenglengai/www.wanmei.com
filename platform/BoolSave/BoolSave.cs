@@ -1,68 +1,104 @@
-﻿namespace platform
+﻿using System;
+namespace platform
 {
     public class BoolSave
     {
-        public BoolType_ _isOpen(ushort nIndex) {
-            ushort length = default(ushort);
-            byte pos = default(byte);
-            return this._runIndex(nIndex, 
-                out length, out pos);
-        }
-
         public BoolType_ _runOpen(ushort nIndex) {
-            ushort length = default(ushort);
-            byte pos = default(byte);
-            BoolType_ result = this._runIndex(nIndex,
-                out length, out pos);
-            if (BoolType_.mSucess_ != result) return result;
-            ulong value_ = 1;
-            value_ <<= pos;
-            ulong open = value_ & mValue[length];
-            if (open < 1) {
-                mValue[length] += value_;
-                mDirty = true;
-                return BoolType_.mSucess_;
+            __tuple<BoolType_, ushort, byte> tuple_ =
+                this._getIndex(nIndex);
+            BoolType_ result = tuple_._get_0();
+            if (BoolType_.mSucess_ == result) {
+                result = this._openPos(tuple_._get_1(),
+                    tuple_._get_2());
             }
-            return BoolType_.mClosed_;
+            return result;
         }
 
         public BoolType_ _runClose(ushort nIndex) {
-            ushort length = default(ushort);
-            byte pos = default(byte);
-            BoolType_ result = this._runIndex(nIndex, 
-                out length, out pos);
-            if (BoolType_.mSucess_ != result) return result;
+            __tuple<BoolType_, ushort, byte> tuple_ =
+                this._getIndex(nIndex);
+            BoolType_ result = tuple_._get_0();
+            if (BoolType_.mSucess_ == result)
+            {
+                result = this._closePos(tuple_._get_1(),
+                    tuple_._get_2());
+            }
+            return result;
+        }
+
+        public BoolType_ _isOpen(ushort nIndex)
+        {
+            __tuple<BoolType_, ushort, byte> tuple_ =
+                this._getIndex(nIndex);
+            BoolType_ result = tuple_._get_0();
+            if (BoolType_.mSucess_ == result)
+            {
+                result = this._isOpen(tuple_._get_1(),
+                    tuple_._get_2());
+            }
+            return result;
+        }
+
+        BoolType_ _openPos(ushort nLength, byte nPos) {
             ulong value_ = 1;
-            value_ <<= pos;
-            ulong open = value_ & mValue[length];
-            if (open > 0) {
-                mValue[length] -= value_;
+            value_ <<= nPos;
+            ulong open = value_ & mValue[nLength];
+            if (open < 1) {
+                mValue[nLength] += value_;
+                mDirty = true;
+                return BoolType_.mSucess_;
+            }
+            return BoolType_.mOpened_;
+        }
+
+        BoolType_ _closePos(ushort nLength, byte nPos) {
+            ulong value_ = 1;
+            value_ <<= nPos;
+            ulong close = value_ & mValue[nLength];
+            if (close > 0) {
+                mValue[nLength] -= value_;
                 mDirty = true;
                 return BoolType_.mSucess_;
             }
             return BoolType_.mClosed_;
         }
 
-        public bool _needSave() {
-            return mDirty;
+        BoolType_ _isOpen(ushort nLength, byte nPos) {
+            ulong value_ = 1;
+            value_ <<= nPos;
+            ulong open = value_ & mValue[nLength];
+            if (open < 1)
+            {
+                return BoolType_.mClosed_;
+            }
+            return BoolType_.mOpened_;
         }
 
-        BoolType_ _runIndex(ushort nIndex,
-            out ushort nLength, out byte nPos) {
-            nLength = (ushort)(nIndex / 64);
-            nPos = (byte)(nIndex % 64);
-            if (nPos > 0) {
-                nLength += 1;
+        __tuple<BoolType_, ushort, byte> _getIndex(
+            ushort nIndex) {
+            if (nIndex < 1) {
+                return new __tuple<BoolType_, ushort,
+                    byte>(BoolType_.mIndex_, 0, 0);
+            }
+            ushort length = (ushort)(nIndex / 64);
+            byte pos = (byte)(nIndex % 64);
+            if (pos > 0) {
+                pos -= 1;
             } else {
-                nPos = 64;
+                length -= 1;
+                pos = 63;
             }
-            if ( (nIndex < 1) ||
-                (nLength > mValue.Length) ) {
-                return BoolType_.mOverflow_;
+            if (length >= mValue.Length) {
+                return new __tuple<BoolType_, ushort, 
+                    byte>(BoolType_.mOverflow_, 0, 0);
             }
-            nLength -= 1;
-            nPos -= 1;
-            return BoolType_.mSucess_;
+            return new __tuple<BoolType_, ushort,
+                byte>(BoolType_.mSucess_, length, pos);
+        }
+
+        public bool _needSave()
+        {
+            return mDirty;
         }
 
         public BoolSave(byte mSize = 1)

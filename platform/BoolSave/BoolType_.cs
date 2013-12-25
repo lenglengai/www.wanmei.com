@@ -7,6 +7,8 @@
         mOpened_,
         mOverflow_,
         mError_,
-        mNext_
+        mIndex_,
+        mNext_,
+        mNone_
     }
 }
