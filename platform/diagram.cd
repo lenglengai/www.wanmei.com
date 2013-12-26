@@ -1,17 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="platform.SerialBool">
-    <Position X="2.25" Y="1" Width="1.5" />
+  <Class Name="platform.PacketMgr">
+    <Position X="0.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>BoolSave\SerialBool.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="platform.CycleBool">
-    <Position X="3.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>BoolSave\CycleBool.cs</FileName>
+      <FileName>Packet\PacketMgr.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="微软雅黑" Size="9" />

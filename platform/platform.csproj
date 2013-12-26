@@ -51,6 +51,8 @@
     <Compile Include="BoolSave\CycleBool.cs" />
     <Compile Include="BoolSave\SerialBool.cs" />
     <Compile Include="Common\__tuple.cs" />
+    <Compile Include="Packet\PacketMgr.cs" />
+    <Compile Include="Packet\Packet.cs" />
     <Compile Include="Serialize\Headstream\XmlWriter.cs" />
     <Compile Include="Service\Device\DeviceService.cs" />
     <Compile Include="Service\Sql\ISqlCommand.cs" />
