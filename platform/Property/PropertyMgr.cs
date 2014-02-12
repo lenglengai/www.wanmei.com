@@ -26,16 +26,16 @@ namespace platform
             }
             Property property_ = nPropertyId._createProperty();
             property_._setPropertyMgr(this);
-            property_._initCreate();
+            property_._runInit();
             mPropertys[propertyId_] = property_;
         }
 
-        public void _runInit()
+        public void _runStart()
         {
             foreach (KeyValuePair<uint, Property> i in mPropertys)
             {
                 Property property_ = i.Value;
-                property_._runInit();
+                property_._runStart();
             }
         }
 

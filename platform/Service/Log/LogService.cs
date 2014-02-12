@@ -1,4 +1,5 @@
 ﻿using log4net;
+using log4net.Config;
 
 namespace platform
 {
@@ -19,11 +20,16 @@ namespace platform
             mLog.Warn(nValue);
         }
 
-        public LogService()
+        public void _runInit()
         {
             mLog = LogManager.GetLogger("log");
         }
 
-        ILog mLog = null;
+        public LogService()
+        {
+            mLog = null;
+        }
+
+        ILog mLog;
     }
 }

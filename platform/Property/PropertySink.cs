@@ -12,6 +12,7 @@ namespace platform
                 IPropertyId propertyId_ = i.Value;
                 nPropertyMgr._addPropertyId(propertyId_);
             }
+            nPropertyMgr._runStart();
         }
 
         public void _registerCreate(IPropertyId nPropertyId)

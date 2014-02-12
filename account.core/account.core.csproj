@@ -39,13 +39,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Message\AccountGet.cs" />
+    <Compile Include="Account\AccountSql\AccountCreateB.cs" />
+    <Compile Include="Account\AccountSql\AccountLoginB.cs" />
+    <Compile Include="Account\Message\AccountLoginC.cs" />
+    <Compile Include="Account\Service\Account.cs" />
+    <Compile Include="Account\Service\AccountCreator.cs" />
+    <Compile Include="Account\Service\AccountMgr.cs" />
     <Compile Include="Account\Service\AccountService.cs" />
-    <Compile Include="Account\Message\AccountError.cs" />
+    <Compile Include="Account\Message\AccountError_.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="diagram.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\platform\platform.csproj">
+      <Project>{f0052ebe-8e92-482c-80c0-2d7a0354ee28}</Project>
+      <Name>platform %28platform\platform%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Account.sql" />
+    <Content Include="Config\accountConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

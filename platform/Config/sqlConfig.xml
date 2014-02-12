@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlService connectionString="server=localhost;user=root;database=wanmei;port=3306;password=zyouhua;charset=utf8;" />

@@ -11,6 +11,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "account", "account", "{2E4D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "account.core", "account.core\account.core.csproj", "{38570E69-3826-471B-9AB2-35762A520056}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "weibo", "weibo", "{8B136E5C-C5D7-47E7-8A2B-935459ABCA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "weibo.core", "weibo.core\weibo.core.csproj", "{3714A205-D535-4E1C-A611-C0ED53648448}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "money", "money", "{1271E525-AECA-49D0-967E-947F89C35595}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "money.core", "money.core\money.core.csproj", "{71C6F3FB-04E0-4CB9-B683-C6EDAB601ABD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +37,14 @@ Global
 		{38570E69-3826-471B-9AB2-35762A520056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38570E69-3826-471B-9AB2-35762A520056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38570E69-3826-471B-9AB2-35762A520056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3714A205-D535-4E1C-A611-C0ED53648448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3714A205-D535-4E1C-A611-C0ED53648448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3714A205-D535-4E1C-A611-C0ED53648448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3714A205-D535-4E1C-A611-C0ED53648448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71C6F3FB-04E0-4CB9-B683-C6EDAB601ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C6F3FB-04E0-4CB9-B683-C6EDAB601ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C6F3FB-04E0-4CB9-B683-C6EDAB601ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C6F3FB-04E0-4CB9-B683-C6EDAB601ABD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +52,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F0052EBE-8E92-482C-80C0-2D7A0354EE28} = {88BC80B5-324F-407C-A1CA-6E3BC77C6131}
 		{38570E69-3826-471B-9AB2-35762A520056} = {2E4D2338-29DA-4404-9A0A-64B29BC600F8}
+		{3714A205-D535-4E1C-A611-C0ED53648448} = {8B136E5C-C5D7-47E7-8A2B-935459ABCA44}
+		{71C6F3FB-04E0-4CB9-B683-C6EDAB601ABD} = {1271E525-AECA-49D0-967E-947F89C35595}
 	EndGlobalSection
 EndGlobal

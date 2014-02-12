@@ -12,11 +12,11 @@
             mPropertyMgr = nPropertyMgr;
         }
 
-        public virtual void _initCreate()
+        public virtual void _runInit()
         {
         }
 
-        public virtual void _runInit()
+        public virtual void _runStart()
         {
         }
 

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net"/>
+  </configSections>
+  <log4net debug="true">
+    <!--使用Rolling方式记录日志按照日来记录日志-->
+    <appender name="Log" type="log4net.Appender.RollingFileAppender">
+      <!--文件名,可以相对路径,也可以绝对路径,这里只给定了文件夹-->
+      <file value="bin\\log\\" />
+      <!--最小锁定模型以允许多个进程可以写入同一个文件,解决文件独占问题-->
+      <lockingModel type="log4net.Appender.FileAppender+MinimalLock" />
+      <!--是否增加文件-->
+      <appendToFile value="true" />
+      <!--日志追加类型,Date为按日期增加文件,Size为按大小-->
+      <rollingStyle value="Date" />
+      <!--文件命名格式,非日期参数化要进行转义,如自定义文件后缀-->
+      <datePattern value="yyyyMM\\yyyy-MM-dd&quot;.xml&quot;" />
+      <!--是否固定文件名-->
+      <staticLogFileName value="false" />
+      <!--内容布局-->
+      <layout type="log4net.Layout.PatternLayout">
+        <!--输出格式化-->
+        <conversionPattern value="&lt;log type=&quot;%p&quot; date=&quot;%d{HH:mm:ss}&quot;&gt;&lt;![CDATA[%m]]&gt;&lt;/log&gt;&#13;&#10;" />
+      </layout>
+      <!--过滤器-->
+      <filter type="log4net.Filter.LevelRangeFilter">
+        <!--只接受最小等级与最大等级之间的日志输出,这里只接受INFO级别的输出-->
+        <param name="LevelMin" value="WARN" />
+        <param name="LevelMax" value="FATAL" />
+      </filter>
+    </appender>
+
+    <!--定义日志的输出媒介-->
+    <root>
+      <!--RollingFileAppender事件日志-->
+      <appender-ref ref="Log" />
+    </root>
+
+  </log4net>
+</configuration>
