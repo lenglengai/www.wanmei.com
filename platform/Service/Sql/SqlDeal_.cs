@@ -1,0 +1,19 @@
+﻿namespace platform
+{
+    public enum SqlDeal_ : byte
+    {
+        mNone_,
+        mCreate_,
+        mPrimary_,
+        mSelect_,
+        mWhere_,
+        mInsert_,
+        mInsertUpdate_,
+        mInsertUpdateE_,
+        mInsertUpdateEx_,
+        mUpdate_,
+        mUpdateSelect_,
+        mUpdateWhen_,
+        mUpdateThen_,
+    }
+}

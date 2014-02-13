@@ -27,7 +27,7 @@ namespace weibo.core
             return SqlType_.mSelect_;
         }
 
-        public void _initStatusOption()
+        public void _runInit()
         {
             StatusService statusService_ = __singleton<StatusService>._instance();
             AccountService accountService_ = __singleton<AccountService>._instance();
@@ -45,7 +45,6 @@ namespace weibo.core
                 {
                     LogSingleton logSingleton_ = __singleton<LogSingleton>._instance();
                     logSingleton_._logError(string.Format(@"StatusOptionSelectB _initStatusOption:{0}", accountMgrId_));
-                    throw new Exception();
                 }
             }
         }

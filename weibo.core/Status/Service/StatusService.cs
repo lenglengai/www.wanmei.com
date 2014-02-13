@@ -99,20 +99,6 @@ namespace weibo.core
             initService_.m_tRunSave += this._saveStatusOption;
         }
 
-        void _saveStatusOption()
-        {
-            StatusOptionInsertB statusOptionInsertB_ = new StatusOptionInsertB();
-            statusOptionInsertB_._initStatusOption();
-            SqlQuery sqlQuery_ = new SqlQuery();
-            sqlQuery_._addHeadstream(statusOptionInsertB_);
-            SqlSingleton mySqlSingleton_ = __singleton<SqlSingleton>._instance();
-            SqlErrorCode_ sqlErrorCode_ = mySqlSingleton_._runSqlQuery(sqlQuery_);
-            if (SqlErrorCode_.mSucess_ != sqlErrorCode_)
-            {
-                throw new Exception();
-            }
-        }
-
         public void _runStart()
         {
             this._startStatusOption();
@@ -120,16 +106,24 @@ namespace weibo.core
 
         void _startStatusOption()
         {
+            SqlCommand sqlCommand_ = new SqlCommand();
             StatusOptionSelectB statusOptionSelectB_ = new StatusOptionSelectB();
-            SqlQuery sqlQuery_ = new SqlQuery();
-            sqlQuery_._addHeadstream(statusOptionSelectB_);
-            SqlSingleton mySqlSingleton_ = __singleton<SqlSingleton>._instance();
-            SqlErrorCode_ sqlErrorCode_ = mySqlSingleton_._runSqlQuery(sqlQuery_, statusOptionSelectB_);
-            if (SqlErrorCode_.mSucess_ != sqlErrorCode_)
+            sqlCommand_._addHeadstream(statusOptionSelectB_);
+            SqlService sqlService_ = __singleton<SqlService>._instance();
+            if (sqlService_._runSqlCommand(sqlCommand_, statusOptionSelectB_))
             {
-                throw new Exception();
+                statusOptionSelectB_._initStatusOption();
             }
-            statusOptionSelectB_._initStatusOption();
+        }
+
+        void _saveStatusOption()
+        {
+            SqlCommand sqlCommand_ = new SqlCommand();
+            StatusOptionInsertB statusOptionInsertB_ = new StatusOptionInsertB();
+            statusOptionInsertB_._runInit();
+            sqlCommand_._addHeadstream(statusOptionInsertB_);
+            SqlService sqlService_ = __singleton<SqlService>._instance();
+            sqlService_._runSqlCommand(sqlCommand_);
         }
     }
 }

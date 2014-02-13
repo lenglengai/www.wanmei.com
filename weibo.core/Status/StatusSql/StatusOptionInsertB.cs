@@ -27,7 +27,7 @@ namespace weibo.core
             return SqlType_.mInsertUpdate_;
         }
 
-        public void _initStatusOption()
+        public void _runInit()
         {
             StatusService statusService_ = __singleton<StatusService>._instance();
             AccountService accountService_ = __singleton<AccountService>._instance();
