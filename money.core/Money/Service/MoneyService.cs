@@ -9,7 +9,7 @@ namespace money.core
     {
         public void _headSerialize(ISerialize nSerialize)
         {
-            nSerialize._serialize(ref mMoneyConfig, @"money");
+            nSerialize._serialize(ref mMoneyConfig, @"moneys");
         }
 
         public string _streamName()
