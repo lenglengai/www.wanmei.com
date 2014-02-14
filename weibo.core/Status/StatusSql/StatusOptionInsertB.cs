@@ -32,11 +32,12 @@ namespace weibo.core
             StatusService statusService_ = __singleton<StatusService>._instance();
             AccountService accountService_ = __singleton<AccountService>._instance();
             IDictionary<uint, AccountMgr> accountMgrs_ = accountService_._getAccountMgrs();
+            uint statusServiceId_ = statusService_._getId();
             foreach (KeyValuePair<uint, AccountMgr> i in accountMgrs_)
             {
                 AccountMgr accountMgr_ = i.Value;
                 uint accountMgrId_ = i.Key;
-                StatusOption statusOption_ = accountMgr_._getProperty<StatusOption>(statusService_._getId());
+                StatusOption statusOption_ = accountMgr_._getProperty<StatusOption>(statusServiceId_);
                 StatusOptionB statusOptionB_ = new StatusOptionB(accountMgrId_, statusOption_);
                 mStatusOptionBs.Add(statusOptionB_);
             }

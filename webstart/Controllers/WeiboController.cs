@@ -23,7 +23,7 @@ namespace webstart.Controllers
         public StatusGetC _getStatus(StatusGetS nStatusGetS)
         {
             StatusService statusService_ = __singleton<StatusService>._instance();
-            return statusService_._getStatus(nStatusCreateS);
+            return statusService_._getStatus(nStatusGetS);
         }
     }
 }

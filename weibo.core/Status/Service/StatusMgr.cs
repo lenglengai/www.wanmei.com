@@ -54,8 +54,23 @@ namespace weibo.core
         public void _getStatus(StatusGetC nStatusGetC, long nTicks, uint nAccountMgrId, uint nAccountId)
         {
             SqlCommand sqlCommand_ = new SqlCommand();
+            this._getStatusCommand(sqlCommand_, nTicks, nAccountMgrId, nAccountId);
             StatusSelectB statusSelectB_ = new StatusSelectB();
-            SortedSet<uint> tables_ = new SortedSet<uint>();
+            SqlService sqlService_ = __singleton<SqlService>._instance();
+            if (sqlService_._runSqlCommand(sqlCommand_, statusSelectB_))
+            {
+                statusSelectB_._initStatusGetC(nStatusGetC);
+                nStatusGetC.m_tErrorCode = StatusError_.mSucess_;
+            }
+            else
+            {
+                nStatusGetC.m_tErrorCode = StatusError_.mSql_;
+            }
+            nStatusGetC.m_tTicks = mTicks;
+        }
+
+        void _getStatusCommand(SqlCommand nSqlCommand, long nTicks, uint nAccountMgrId, uint nAccountId)
+        {
             int pos = 0;
             foreach (StatusId i in mStatusIds)
             {
@@ -63,46 +78,17 @@ namespace weibo.core
                 {
                     break;
                 }
-                tables_.Add(i._getTableId());
+                uint tableId_ = i._getTableId();
+                long statusId_ = i._getStatusId();
+                StatusSelectB statusSelectB_ = new StatusSelectB(nAccountMgrId, tableId_, nAccountId);
+                statusSelectB_._addStatusId(statusId_);
                 ++pos;
                 if (pos > 5)
                 {
                     break;
                 }
             }
-            pos = 0;
-            foreach (uint i in tables_)
-            {
-                StatusSelectB statusSelectBTemp_ = new StatusSelectB(nAccountMgrId, i, nAccountId);
-                foreach (StatusId j in mStatusIds)
-                {
-                    if (j._getTableId() == i)
-                    {
-                        statusSelectBTemp_._addStatusId(j._getStatusId());
-                    }
-                    ++pos;
-                    if (pos > 5)
-                    {
-                        break;
-                    }
-                }
-                sqlQuery_._addHeadstream(statusSelectBTemp_);
-                if (pos > 5)
-                {
-                    break;
-                }
-            }
-            SqlSingleton mySqlSingleton_ = __singleton<SqlSingleton>._instance();
-            SqlErrorCode_ sqlErrorCode_ = mySqlSingleton_._runSqlQuery(sqlQuery_, statusSelectB_);
-            nStatusGetC.m_tErrorCode = this._getErrorCode(sqlErrorCode_);
-            nStatusGetC.m_tTicks = mTicks;
-            if (ErrorCode_.mSucess_ == nStatusGetC.m_tErrorCode)
-            {
-                statusSelectB_._initStatusGetC(nStatusGetC);
-            }
         }
-
-
 
         public string _getStrStatusIds()
         {

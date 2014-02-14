@@ -112,7 +112,7 @@ namespace weibo.core
             SqlService sqlService_ = __singleton<SqlService>._instance();
             if (sqlService_._runSqlCommand(sqlCommand_, statusOptionSelectB_))
             {
-                statusOptionSelectB_._initStatusOption();
+                statusOptionSelectB_._runInit();
             }
         }
 
